@@ -3,6 +3,8 @@ let pic = document.querySelector(".dice");
 let generator = document.querySelector(".btn--roll");
 let player = document.querySelector(".btn--hold");
 let reset = document.querySelector(".btn--new");
+let winp1 = document.querySelector(".winp1");
+let winp2 = document.querySelector(".winp2");
 
 let current1 = 0;
 let current2 = 0;
@@ -31,6 +33,13 @@ player.addEventListener("click", function () {
     p1Current.textContent = "0";
     scorep1 += current1;
     current1 = 0;
+    //adding the winner
+    if (scorep1 >= 100) {
+      scorep1 = 100;
+      winp1.classList.remove("hidden");
+      generator.disabled = true;
+      player.disabled = true;
+    }
     score1.textContent = scorep1;
     number = Math.round(Math.random() * 6);
   } else {
@@ -39,6 +48,13 @@ player.addEventListener("click", function () {
     p2Current.textContent = "0";
     scorep2 += current2;
     current2 = 0;
+    //adding the winner
+    if (scorep2 >= 100) {
+      scorep2 = 100;
+      winp2.classList.remove("hidden");
+      generator.disabled = true;
+      player.disabled = true;
+    }
     score2.textContent = scorep2;
     number = Math.round(Math.random() * 6);
   }
@@ -126,4 +142,6 @@ reset.addEventListener("click", function () {
   current1 = 0;
   scorep2 = 0;
   scorep1 = 0;
+  if (!winp1.classList.contains("hidden")) winp1.classList.add("hidden");
+  if (!winp2.classList.contains("hidden")) winp2.classList.add("hidden");
 });

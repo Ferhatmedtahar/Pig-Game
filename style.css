@@ -37,6 +37,7 @@ main {
 }
 
 .player {
+  position: relative;
   flex: 50%;
   padding: 9rem;
   display: flex;
@@ -164,4 +165,16 @@ main {
 .player--winner .name {
   font-weight: 700;
   color: #c7365f;
+}
+.winp1,
+.winp2 {
+  color: #7fff94;
+  font-weight: bold;
+  position: absolute;
+  bottom: 250px;
+  font-size: 27px;
+  font-family: "Nunito", sans-serif;
+}
+.hidden {
+  display: none;
 }
